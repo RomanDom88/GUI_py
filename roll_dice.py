@@ -18,10 +18,10 @@ class GUI:
         file.add_command(label = 'Save')
         res = Menu(window)
         window.add_cascade(window = res, label = 'Resolution')
-        res.add_command(label = '480x360')
-        res.add_command(label = '640x480')
-        res.add_command(label = '1280x720')
-        res.add_command(label = '1600x900')
+        res.add_command(label = '480x360', command = lambda e: self.change_resolution('1'))
+        res.add_command(label = '640x480', command = lambda e: self.change_resolution('2'))
+        res.add_command(label = '1280x720', command = lambda e: self.change_resolution('3'))
+        res.add_command(label = '1600x900', command = lambda e: self.change_resolution('4'))
         colour = Menu(window)
         window.add_cascade(window = colour, label = "Background Colour")
         colour.add_command(label = 'First')
@@ -35,7 +35,15 @@ class GUI:
     
     def rolldice(self, range):
         return random.randrange(range)
-
+    def change_resolution(self, res):
+        if res == '1':
+            master.geometry('480x360')
+        elif res == '2':
+            master.geometry('640x480')
+        elif res == '3':
+            master.geometry('1280x720')
+        elif res == '4':
+            master.geometry('1600x900')
 
 
 def main():            
