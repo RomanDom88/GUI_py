@@ -13,17 +13,17 @@ class GUI:
 
         menubar.add_cascade(menu = file, label = 'File')
         menubar.add_cascade(menu = window, label = 'Window')
-
         file.add_command(label = 'Open')
         file.add_command(label = 'Save')
+
         res = Menu(window)
-        window.add_cascade(window = res, label = 'Resolution')
-        res.add_command(label = '480x360', command = lambda e: self.change_resolution('1'))
-        res.add_command(label = '640x480', command = lambda e: self.change_resolution('2'))
-        res.add_command(label = '1280x720', command = lambda e: self.change_resolution('3'))
-        res.add_command(label = '1600x900', command = lambda e: self.change_resolution('4'))
+        window.add_cascade(menu = res, label = 'Resolution')
+        res.add_command(label = '480x360', command = lambda: self.change_resolution('1', master))
+        res.add_command(label = '640x480', command = lambda: self.change_resolution('2', master))
+        res.add_command(label = '1280x720', command = lambda: self.change_resolution('3', master))
+        res.add_command(label = '1600x900', command = lambda: self.change_resolution('4', master))
         colour = Menu(window)
-        window.add_cascade(window = colour, label = "Background Colour")
+        window.add_cascade(menu = colour, label = "Background Colour")
         colour.add_command(label = 'First')
         colour.add_command(label = 'Second')
         colour.add_command(label = 'Third')
@@ -35,7 +35,7 @@ class GUI:
     
     def rolldice(self, range):
         return random.randrange(range)
-    def change_resolution(self, res):
+    def change_resolution(self, res, master):
         if res == '1':
             master.geometry('480x360')
         elif res == '2':
