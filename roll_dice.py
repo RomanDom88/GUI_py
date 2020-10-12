@@ -24,10 +24,10 @@ class GUI:
         res.add_command(label = '1600x900', command = lambda: self.change_resolution('4', master))
         colour = Menu(window)
         window.add_cascade(menu = colour, label = "Background Colour")
-        colour.add_command(label = 'First')
-        colour.add_command(label = 'Second')
-        colour.add_command(label = 'Third')
-        colour.add_command(label = 'Custom')
+        colour.add_command(label = 'First')#, command = lambda: self.change_colour())
+        colour.add_command(label = 'Second')#, command = lambda: self.change_colour())
+        colour.add_command(label = 'Third')#, command = lambda: self.change_colour())
+        colour.add_command(label = 'Custom')#, command = lambda: self.change_colour())
 
         #functionality of menu
 
@@ -44,6 +44,8 @@ class GUI:
             master.geometry('1280x720')
         elif res == '4':
             master.geometry('1600x900')
+    def change_colour(self, colour, master):
+        pass
 
 
 def main():            
