@@ -7,7 +7,8 @@ class GUI:
 
         #Master Window 
         master.geometry('640x480')
-        #master.resizable(False, False)
+
+        master.resizable(False, False)
         menubar = Menu(master)
         master.config(menu = menubar)
         file = Menu(menubar)
@@ -37,9 +38,9 @@ class GUI:
 
         colour = Menu(settings)
         settings.add_cascade(menu = colour, label = "Colour")
-        colour.add_command(label = 'First')#, command = lambda: self.change_colour())
-        colour.add_command(label = 'Second')#, command = lambda: self.change_colour())
-        colour.add_command(label = 'Third')#, command = lambda: self.change_colour())
+        colour.add_command(label = 'First', command = lambda: self.change_colour('1', master))
+        colour.add_command(label = 'Second', command = lambda: self.change_colour('2', master))
+        colour.add_command(label = 'Third', command = lambda: self.change_colour('3', master))
         colour.add_command(label = 'Custom')#, command = lambda: self.change_colour())
 
         # Window Frames
@@ -73,8 +74,14 @@ class GUI:
         elif res == '4':
             master.geometry('1600x900')
     def change_colour(self, colour, master):
-        pass
-
+        if colour == '1':
+            master.config(background = 'red')
+        elif colour == '2':
+            master.config(background = 'white')
+        elif colour == '3':
+            master.config(background = 'green')
+        else:
+            master.config(background = 'black')
 
 def main():            
     
