@@ -21,6 +21,7 @@ class GUI:
 
         # File Menu
         file.add_command(label='Open')
+        file.add_separator()
         file.add_command(label='Save')
         file.add_command(label='Save as')
 
@@ -49,27 +50,28 @@ class GUI:
 
         # Window Frames
 
-        #frame_dice = ttk.Frame(master)
-        #frame_dice.config(height=150, width=640)
-        #frame_dice.place(x=640, anchor='ne')
+        #frame0 = ttk.Frame(master)
+        #frame0.config(height=150, width=640)
+        #frame0.place(x=640, anchor='ne')
         
-        #frame_history = ttk.Frame(master)
-        #frame_history.config(height=330, width=150)
-        #frame_history.place(relx=0, rely=0.3)
+        #frame1 = ttk.Frame(master)
+        #frame1.config(height=330, width=150)
+        #frame1.place(relx=0, rely=0.3)
 
-        #frame_main = ttk.Frame(master)
-        #frame_main.config(height=200, width=200)
-        #frame_main.place(relx=0.3, rely=0.3)
+        #frame2 = ttk.Frame(master)
+        #frame2.config(height=200, width=200)
+        #frame2.place(relx=0.3, rely=0.3)
 
 
         
 
     # Advanced Menu Window
     def advancedMenu(self, master):
-        advWindow = Toplevel(self)
+        advWindow = Toplevel()
         advWindow.title('Settings')
         advWindow.geometry('360x240')
         advWindow.resizable(False, False)
+
 
     def change_resolution(self, res, master):
         if res == '1':
@@ -80,6 +82,7 @@ class GUI:
             master.geometry('1280x720')
         elif res == '4':
             master.geometry('1600x900')
+
     def change_colour(self, colour, master):
         if colour == '1':
             master.config(background = 'blue')
