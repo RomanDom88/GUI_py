@@ -8,6 +8,7 @@ class GUI:
         #Master Window 
         master.geometry('640x480')
         master.resizable(False, False)
+        master.title('Python GUI')
         menubar = Menu(master)
         master.config(menu=menubar)
         #Menu
@@ -43,27 +44,33 @@ class GUI:
         colour.add_radiobutton(label='Green', command=lambda: self.change_colour('3', master))
         colour.add_radiobutton(label='Custom')#, command = lambda: self.change_colour())
 
+        # Advanced Menu
+        settings.add_command(label='Advanced Menu', command=lambda: self.advancedMenu(master))
+
         # Window Frames
 
-        frame_dice = ttk.Frame(master)
-        frame_dice.config(height=150, width=640)
-        frame_dice.place(x=640, anchor='ne')
+        #frame_dice = ttk.Frame(master)
+        #frame_dice.config(height=150, width=640)
+        #frame_dice.place(x=640, anchor='ne')
         
-        frame_history = ttk.Frame(master)
-        frame_history.config(height=330, width=150)
-        frame_history.place(relx=0, rely=0.3)
+        #frame_history = ttk.Frame(master)
+        #frame_history.config(height=330, width=150)
+        #frame_history.place(relx=0, rely=0.3)
 
-        frame_main = ttk.Frame(master)
-        frame_main.config(height=200, width=200)
-        frame_main.place(relx=0.3, rely=0.3)
+        #frame_main = ttk.Frame(master)
+        #frame_main.config(height=200, width=200)
+        #frame_main.place(relx=0.3, rely=0.3)
 
 
         
 
-    
-    
-    def rolldice(self, range):
-        return random.randrange(range)
+    # Advanced Menu Window
+    def advancedMenu(self, master):
+        advWindow = Toplevel(self)
+        advWindow.title('Settings')
+        advWindow.geometry('360x240')
+        advWindow.resizable(False, False)
+
     def change_resolution(self, res, master):
         if res == '1':
             master.geometry('480x360')
