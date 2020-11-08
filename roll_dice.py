@@ -7,10 +7,10 @@ class GUI:
 
         #Master Window 
         master.geometry('640x480')
-
         master.resizable(False, False)
         menubar = Menu(master)
         master.config(menu=menubar)
+        #Menu
         file = Menu(menubar)
         settings = Menu(menubar)
 
@@ -28,20 +28,20 @@ class GUI:
         # Resolution Menu
         res = Menu(settings)
         settings.add_cascade(menu=res, label='Resolution')
-        res.add_command(label='480x360', command=lambda: self.change_resolution('1', master))
-        res.add_command(label='640x480', command=lambda: self.change_resolution('2', master))
-        res.add_command(label='1280x720', command=lambda: self.change_resolution('3', master))
-        res.add_command(label='1600x900', command=lambda: self.change_resolution('4', master))
-        res.add_command(label='Custom')
+        res.add_radiobutton(label='480x360', value=0, variable=IntVar, command=lambda: self.change_resolution('1', master))
+        res.add_radiobutton(label='640x480', value=1, variable=IntVar, command=lambda: self.change_resolution('2', master))
+        res.add_radiobutton(label='1280x720', value=0, variable=IntVar, command=lambda: self.change_resolution('3', master))
+        res.add_radiobutton(label='1600x900', value=0, variable=IntVar, command=lambda: self.change_resolution('4', master))
+        res.add_radiobutton(label='Custom')
 
         # Colour Menu
 
         colour = Menu(settings)
-        settings.add_cascade(menu=colour, label="Colour")
-        colour.add_command(label='First', command=lambda: self.change_colour('1', master))
-        colour.add_command(label='Second', command=lambda: self.change_colour('2', master))
-        colour.add_command(label='Third', command=lambda: self.change_colour('3', master))
-        colour.add_command(label='Custom')#, command = lambda: self.change_colour())
+        settings.add_cascade(menu=colour, label="Background Colour")
+        colour.add_radiobutton(label='Blue', command=lambda: self.change_colour('1', master))
+        colour.add_radiobutton(label='Grey', command=lambda: self.change_colour('2', master))
+        colour.add_radiobutton(label='Green', command=lambda: self.change_colour('3', master))
+        colour.add_radiobutton(label='Custom')#, command = lambda: self.change_colour())
 
         # Window Frames
 
@@ -75,9 +75,9 @@ class GUI:
             master.geometry('1600x900')
     def change_colour(self, colour, master):
         if colour == '1':
-            master.config(background = 'red')
+            master.config(background = 'blue')
         elif colour == '2':
-            master.config(background = 'white')
+            master.config(background = 'grey')
         elif colour == '3':
             master.config(background = 'green')
         else:
